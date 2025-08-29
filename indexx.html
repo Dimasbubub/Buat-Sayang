@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Sayangku - Maaf & Janji Manis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #ff8fa3;
+            --accent-color: #ffb3c1;
+            --dark-color: #590d22;
+            --light-color: #fff0f3;
+            --coffee-color: #6f4e37;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-color);
+            color: #333;
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ff4d6d22" d="M50,0 C77.614,0 100,22.386 100,50 C100,77.614 77.614,100 50,100 C22.386,100 0,77.614 0,50 C0,22.386 22.386,0 50,0 Z" /></svg>');
+            background-size: 200px;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(89, 13, 34, 0.7), rgba(89, 13, 34, 0.7)), url('https://images.unsplash.com/photo-1516487106395-f2d269d6a21c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0;
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: var(--dark-color);
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 15px auto;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .btn-romantic {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .btn-romantic:hover {
+            background-color: var(--dark-color);
+            border-color: var(--dark-color);
+            transform: scale(1.05);
+        }
+        
+        .love-note {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .love-note:before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            color: var(--accent-color);
+            opacity: 0.3;
+        }
+        
+        .testimonial img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 22px;
+            margin: 0 12px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .heart {
+            color: var(--primary-color);
+            animation: pulse 1.5s infinite;
+        }
+        
+        .coffee-icon {
+            color: var(--coffee-color);
+            font-size: 1.5rem;
+            margin: 0 5px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .apology-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: 20px;
+        }
+        
+        .promise-card {
+            border-left: 5px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+        
+        .promise-card:hover {
+            border-left: 5px solid var(--dark-color);
+            transform: translateX(10px);
+        }
+        
+        .countdown {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--dark-color);
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .message-container {
+            position: relative;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .message-container:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: white transparent transparent;
+        }
+        
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--dark-color);
+            text-align: right;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-heart-fill me-2" style="color: var(--primary-color);"></i>
+                Untuk Sayangku
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#maaf">Permintaan Maaf</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#janji">InsyaAllah</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ucapan">Ucapan Untuk Sayang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#countdown">Countdown</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 class="display-3 fw-bold mb-4">Untuk Sayangku Tercinta <span class="heart">❤️</span></h1>
+                    <p class="lead mb-4">Maafkan Dimas ya sayang, Dimas insya allah nanti malam bakal nemenin kamu sampai pagi</p>
+                    <a href="#maaf" class="btn btn-light btn-lg">Baca Pesan Khusus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apology Section -->
+    <section id="maaf" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Permintaan Maaf</h2>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-10">
+                    <div class="message-container">
+                        <p class="text-center mb-0">Sayangku yang cantik dan baik hati...</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="Sayangku.jpg" alt="Profile" class="rounded-circle mb-3" width="120" height="120">
+                        <p class="signature">- Dimas yang sayang kamu -</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="apology-section text-center p-5 rounded">
+                        <i class="bi bi-moon-stars-fill display-1 mb-3"></i>
+                        <h3>Maafkan Dimas ya Sayang</h3>
+                        <p>Dimas minta maaf karena ketiduran dan engga bisa nemenin kamu tadi malam. Dimas bangun jam 3 tapi ngantuk sekali jadi tidur lagi.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="apology-section text-center p-5 rounded" style="background: linear-gradient(135deg, var(--coffee-color) 0%, #4a2c2a 100%);">
+                        <i class="bi bi-cup-hot-fill display-1 mb-3"></i>
+                        <h3>InsyaAllah</h3>
+                        <p>Nanti malam Dimas mau beli <span class="coffee-icon">☕</span> Kopiko 5 botol biar bisa melek dan nemenin kamu semalaman penuh!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promise Section -->
+    <section id="janji" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Janji</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card promise-card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <i class="bi bi-stars" style="font-size: 2rem; color: var(--primary-color);"></i>
+                            </div>
+                            <h4 class="card-title text-center">Dimas Akan Selalu Menemani Kamu</h4>
+                            <p class="card-text">Dimas akan selalu ada untuk kamu, kapanpun kamu butuh teman cerita atau butuh pelukan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card promise-card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <i class="bi bi-cup-hot" style="font-size: 2rem; color: var(--coffee-color);"></i>
+                            </div>
+                            <h4 class="card-title text-center">Siap Begadang</h4>
+                            <p class="card-text">Dengan 5 botol Kopiko, Dimas siap begadang semalaman untuk nemenin kamu yang lagi engga bisa tidur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card promise-card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <i class="bi bi-heart" style="font-size: 2rem; color: var(--primary-color);"></i>
+                            </div>
+                            <h4 class="card-title text-center">Cinta yang Tulus</h4>
+                            <p class="card-text">Dimas akan selalu menyayangi kamu dengan tulus dan setulus-tulusnya sayang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Romantic Messages -->
+    <section id="ucapan" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Ucapan Romantis untuk kamu</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="love-note">
+                        <p>"Sayangku, ketiduran itu bukan berarti dimas engga pengen nemenin kamu. Dimas capek banget semalam + pening, tapi malam ini nanti InsyaAllah Dimas pastiin bakal full nemenin kamu semalaman."</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="love-note">
+                        <p>"Kamu adalah wanita terhebat dalam hidup Dimas. Maafin Dimas ya sayang, Dimas sayang kamu lebih dari apapun."</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="love-note">
+                        <p>"Nanti malam siap-siap ya sayang dan kalau bisa mabar roblox sayang wkwk tapi kalau sayang masih sakit engga usah ya sayangg, Dimas insyaAllah bakal nemenin kamu sampai pagi."</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="love-note">
+                        <p>"Dengan 5 botol Kopiko ini, Dimas yakin bisa melek semalaman. Yang penting kamu happy dan engga kesepian lagi."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section id="countdown" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Countdown Nanti Malam</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p>Dimas akan menelpon kamu dalam:</p>
+                    <div class="countdown" id="countdown-timer">
+                        00:00:00
+                    </div>
+                    <p>Bersiaplah untuk malam yang spesial bersama Dimas!</p>
+                    <div class="mt-4">
+                        <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coffee" class="img-fluid rounded floating-element" style="max-height: 250px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-4">Untuk Sayangku</h4>
+                    <p>Website kecil ini dibuat dengan cinta untuk wanita terhebat dalam hidup Dimas.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="mb-4">insyaAllah Janji Dimas</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill me-2" style="color: var(--accent-color);"></i> Akan selalu menyayangi kamu</li>
+                        <li><i class="bi bi-check-circle-fill me-2" style="color: var(--accent-color);"></i> Akan selalu mendukung kamu</li>
+                        <li><i class="bi bi-check-circle-fill me-2" style="color: var(--accent-color);"></i> Akan selalu menemani kamu</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4 class="mb-4">Terhubung dengan Dimas</h4>
+                    <div class="social-icons d-flex justify-content-center justify-content-lg-start">
+                        <a href="#"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="indexx.html"><i class="bi bi-envelope-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 - Dibuat dengan ❤️ untuk Sayangku</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Dimas sayang kamu selalu! <i class="bi bi-heart-fill heart"></i></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const target = new Date();
+            
+            // Set target to 8 PM today
+            target.setHours(23, 0, 0, 0);
+            
+            // If it's already past 8 PM, set target to 8 PM tomorrow
+            if (now > target) {
+                target.setDate(target.getDate() + 1);
+            }
+            
+            const diff = target - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown-timer').innerHTML = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
